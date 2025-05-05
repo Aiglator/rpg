@@ -1,11 +1,10 @@
 #ifndef MENU_HPP
 #define MENU_HPP
 
-// Déclarez la fonction principale du menu
-void viewmenu();
+#include <iostream>
 
-// Déclarez les fonctions qui seront implémentées ailleurs
-void level1();
-void settings();
+inline void viewmenu() {
+    std::cout << "Bienvenue dans le menu du jeu !" << std::endl;
+}
 
-#endif // MENU_HPP
+#endif
