@@ -3,13 +3,15 @@
 
 #include <SFML/Graphics.hpp>
 
-class background {
-    public:
-        background();
-        void draw(sf::RenderWindow& window); // Corrected spelling here
-    private:
-        sf::Texture texture;
-        sf::Sprite sprite;
+class Background {
+public:
+    Background();                             // constructeur
+    void draw(sf::RenderWindow& window);      // méthode d'affichage
+
+private:
+    sf::Texture texture;
+    sf::Sprite sprite;
+    
 };
 
 #endif

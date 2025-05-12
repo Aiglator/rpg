@@ -1,21 +1,18 @@
 #include <SFML/Graphics.hpp>
-#include "includes/world.hpp"
+#include "includes/background.hpp"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Mario 2D RPG");
+    sf::Vector2u windowSize(800, 600);
+    sf::RenderWindow window(sf::VideoMode(windowSize), "Mario 2D RPG");
     window.setFramerateLimit(60);
 
-    world w;
+    Background bg;
 
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+        // Pas de gestion d’événement ici
 
         window.clear();
-        w.draw(window);
+        bg.draw(window);
         window.display();
     }
 
