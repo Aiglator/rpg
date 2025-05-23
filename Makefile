@@ -17,7 +17,7 @@ CFLAGS = -Wall -Wextra -std=c++17
 INC = -I./includes
 LIB_PATH = -L./lib -lsfml-graphics -lsfml-network -lsfml-system -lsfml-audio -lsfml-window -lopengl32 -lwinmm -lgdi32
 
-SRC = main.cpp src/file/background.cpp 
+SRC = main.cpp src/file/background.cpp src/file/plateforme.cpp src/file/world.cpp src/file/player.cpp src/file/coin.cpp src/file/level1.cpp src/file/enemy.cpp src/file/flag.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -2,25 +2,37 @@
 #define BACKGROUND_HPP
 
 #include <SFML/Graphics.hpp>
+#include <memory>
+#include <vector>
 
-/**
- * @brief Classe de gestion du fond d'écran du jeu.
- */
 class Background {
 public:
-    Background(); ///< Constructeur par défaut (1280x720)
-    Background(const sf::Vector2u& windowSize); ///< Constructeur avec taille de fenêtre dynamique
-    ~Background(); ///< Destructeur propre
+    Background(const sf::Vector2u& windowSize);
 
     void draw(sf::RenderWindow& window);
-    bool isValid() const;
+    void scroll(float dx);
+
+    // Gestion largeur dynamique
+    void setWidth(float newWidth);
+    float getWidth() const;
+    sf::FloatRect getBounds() const;
+
+    sf::Vector2f getPosition() const { return backgroundShape.getPosition(); }
+    sf::Vector2f getSize() const { return backgroundShape.getSize(); }
+    void setPosition(const sf::Vector2f& pos) { backgroundShape.setPosition(pos); }
 
 private:
-    sf::Texture texture;      ///< Texture du fond
-    sf::Sprite* sprite;       ///< Sprite affiché à l'écran
-    bool valid = false;       ///< Booléen pour savoir si le chargement a réussi
+    sf::Vector2u windowSize;
+    sf::RectangleShape backgroundShape; // Fond bleu
 
-    void scaleToWindow(const sf::Vector2u& windowSize); ///< Méthode interne pour le redimensionnement
+    sf::Texture landscapeTexture;
+    std::vector<sf::Sprite> landscapeSprites; // Scène répétée (montagnes)
+    float landscapeWidth = 0.f;
+
+    sf::Texture chateauTexture;
+    std::unique_ptr<sf::Sprite> chateauSprite;
+
+    void updateLandscapeSprites();
 };
 
 #endif // BACKGROUND_HPP
