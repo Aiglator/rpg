@@ -130,7 +130,7 @@ int main() {
                     enemy.stomped();
                     player.bounce();
                 } else {
-                    player.takeDamage(1); // Collision classique = perte de vie
+                    player.takeDamage(0.2); // Collision classique = perte de vie
                 }
             }
         }
