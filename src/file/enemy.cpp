@@ -13,7 +13,7 @@ Enemy::Enemy(const sf::Vector2f& pos)
         return sf::Sprite(goombaTextures[0]);
     }())
 {
-    sprite.setScale(sf::Vector2f(0.4f, 0.4f)); // taille réduite X5
+    sprite.setScale(sf::Vector2f(0.6f, 0.6f)); // taille réduite X5
     sprite.setPosition(position);
 }
 
